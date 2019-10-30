@@ -1,13 +1,13 @@
-package karta_pacjanta.karta;
+package karta_pacjenta.pacjent_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KartaApplicationTests {
+class ServiceApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
