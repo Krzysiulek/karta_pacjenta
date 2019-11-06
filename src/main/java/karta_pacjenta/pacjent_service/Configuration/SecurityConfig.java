@@ -22,9 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
+                .antMatchers("/api/users/test").permitAll()
                 .antMatchers("/api/**").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN", "ROLE_WRITER") // TODO: 2019-11-05 roles from UserRolesEnum
-                .antMatchers("/test").permitAll()
-                .anyRequest().hasAnyAuthority(UserRoles.ADMIN.getRole())
+                .anyRequest().permitAll()
                 .and()
                 .csrf().disable();
 
