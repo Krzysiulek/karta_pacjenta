@@ -11,6 +11,5 @@ public class MedicalHistory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
-
     private long patientId;
 }
