@@ -3,6 +3,8 @@ package karta_pacjenta.pacjent_service.Controllers.UserValidation;
 import karta_pacjenta.pacjent_service.Interfaces.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import karta_pacjenta.pacjent_service.Models.Enums.UserRoles;
+import karta_pacjenta.pacjent_service.Services.MyAppUserPrincipal;
+import karta_pacjenta.pacjent_service.Utils.UsersUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -42,6 +44,11 @@ public class UsersController {
     @DeleteMapping("/{userId}")
     private void deleteUser(@PathVariable long userId) {
         myAppUsersRepository.deleteById(userId); // TODO: 2019-11-05 test
+    }
+
+    @GetMapping("/currentlyLogged")
+    private MyAppUserPrincipal getCurrentyLoggedInUser() {
+        return UsersUtils.getCurrentlyLoggedInUser();
     }
 
     @GetMapping("/test")

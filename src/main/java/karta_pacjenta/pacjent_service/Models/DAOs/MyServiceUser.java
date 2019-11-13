@@ -13,6 +13,11 @@ import java.util.HashSet;
 @AllArgsConstructor
 public class MyServiceUser {
 
+    // TODO: 2019-11-06
+    //  - split into patient and doctor
+    //  - placówki medyczne
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long userId;
@@ -22,9 +27,6 @@ public class MyServiceUser {
     private String password;
     private String email;
     private HashSet<String> roles;
-
-//    private String firstName;
-//    private String lastName;
 
     public MyServiceUser(String username, String password, String email) {
         this.userName = username;
