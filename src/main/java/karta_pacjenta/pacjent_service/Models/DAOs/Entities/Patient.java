@@ -22,4 +22,5 @@ public class Patient {
     private String address;
     private int phoneNumber;
     private long personalIdentityNumber;
+    // TODO: 2019-11-24 move those informations to User Class
 }

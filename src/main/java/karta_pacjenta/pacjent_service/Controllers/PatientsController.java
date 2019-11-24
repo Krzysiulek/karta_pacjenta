@@ -14,6 +14,7 @@ public class PatientsController {
     @Autowired
     private PatientsRepository patientsRepository;
 
+    // TODO: 2019-11-24 fix this after moving personal infos to MyAppUser. Get infos from more than 1 class
     @GetMapping
     private List<Patient> getAllPatients() {
         return patientsRepository.findAll();

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -18,6 +19,11 @@ public class DiseasesController {
     @GetMapping
     public List<Diseases> getAllDiseases() {
         return diseasesRepository.findAll();
+    }
+
+    @GetMapping("/{diseaseId}")
+    public Optional<Diseases> getDiseaseById(@PathVariable Long diseaseId) {
+        return diseasesRepository.findById(diseaseId);
     }
 
     @PostMapping

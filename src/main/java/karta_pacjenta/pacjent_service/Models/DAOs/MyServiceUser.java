@@ -17,6 +17,8 @@ public class MyServiceUser {
     //  - split into patient and doctor
     //  - placówki medyczne
 
+    // TODO: 2019-11-24 Add here personal infos
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
