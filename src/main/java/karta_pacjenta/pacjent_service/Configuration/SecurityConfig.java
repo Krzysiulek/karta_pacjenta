@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/users/test").permitAll()
+                .antMatchers("/test").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/api/users/register").permitAll()
                 .antMatchers("/api/**").hasAnyAuthority(UserRoles.PATIENT.getRole(), UserRoles.ADMIN.getRole(), UserRoles.DOCTOR.getRole())

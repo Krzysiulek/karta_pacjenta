@@ -15,8 +15,7 @@ public class DiseasesController {
     @Autowired
     private DiseasesRepository diseasesRepository;
 
-
-    @GetMapping
+    @GetMapping("")
     public List<Diseases> getAllDiseases() {
         return diseasesRepository.findAll();
     }

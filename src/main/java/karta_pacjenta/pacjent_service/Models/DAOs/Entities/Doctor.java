@@ -22,9 +22,6 @@ public class Doctor {
     private long doctorId;
     private long userId;
 
-    private String firstName;
-    private String lastName;
-
     private boolean active;
     private ArrayList<String> specializations;
     private ArrayList<Long> medicalFacilitiesParticipantIds;

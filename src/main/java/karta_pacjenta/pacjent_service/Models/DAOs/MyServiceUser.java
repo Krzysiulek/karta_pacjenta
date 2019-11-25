@@ -2,6 +2,8 @@ package karta_pacjenta.pacjent_service.Models.DAOs;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Collections;
@@ -11,6 +13,7 @@ import java.util.HashSet;
 @Data
 @Table(name = "myAppUsers")
 @AllArgsConstructor
+@NoArgsConstructor
 public class MyServiceUser {
 
     // TODO: 2019-11-06
@@ -18,7 +21,6 @@ public class MyServiceUser {
     //  - placówki medyczne
 
     // TODO: 2019-11-24 Add here personal infos
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -30,23 +32,28 @@ public class MyServiceUser {
     private String email;
     private HashSet<String> roles;
 
-    public MyServiceUser(String username, String password, String email) {
-        this.userName = username;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private int phoneNumber;
+    private long personalIdentityNumber;
+
+    public MyServiceUser(String userName,
+                         String password,
+                         String email,
+                         String firstName,
+                         String lastName,
+                         String address,
+                         int phoneNumber,
+                         long personalIdentityNumber) {
+        this.userName = userName;
         this.password = password;
         this.email = email;
-        roles = new HashSet<String>(Collections.singleton("ROLE_USER"));
+        this.roles = new HashSet<String>(Collections.singleton("ROLE_USER"));
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.personalIdentityNumber = personalIdentityNumber;
     }
-
-    public MyServiceUser(String username, String password, String email, HashSet<String> roles) {
-        this.userName = username;
-        this.password = password;
-        this.email = email;
-        this.roles = roles;
-
-        if (roles.isEmpty()) {
-            roles = new HashSet<String>(Collections.singleton("ROLE_USER"));
-        }
-    }
-
-    public MyServiceUser() {}
 }

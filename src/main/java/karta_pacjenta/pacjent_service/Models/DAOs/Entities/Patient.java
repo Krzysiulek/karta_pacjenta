@@ -15,12 +15,9 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long patientId;
-
     private long userId;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private int phoneNumber;
-    private long personalIdentityNumber;
-    // TODO: 2019-11-24 move those informations to User Class
+
+    public Patient(Long userId) {
+        this.userId = userId;
+    }
 }
