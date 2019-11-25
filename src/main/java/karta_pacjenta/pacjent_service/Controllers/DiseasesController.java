@@ -1,6 +1,6 @@
 package karta_pacjenta.pacjent_service.Controllers;
 
-import karta_pacjenta.pacjent_service.Interfaces.DiseasesRepository;
+import karta_pacjenta.pacjent_service.Repositories.DiseasesRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Diseases;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

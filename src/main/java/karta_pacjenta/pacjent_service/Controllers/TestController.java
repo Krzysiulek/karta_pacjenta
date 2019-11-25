@@ -1,8 +1,8 @@
 package karta_pacjenta.pacjent_service.Controllers;
 
-import karta_pacjenta.pacjent_service.Interfaces.DiseasesRepository;
-import karta_pacjenta.pacjent_service.Interfaces.MyAppUsersRepository;
-import karta_pacjenta.pacjent_service.Interfaces.PatientsRepository;
+import karta_pacjenta.pacjent_service.Repositories.DiseasesRepository;
+import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
+import karta_pacjenta.pacjent_service.Repositories.PatientsRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Diseases;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Patient;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;

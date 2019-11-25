@@ -1,6 +1,6 @@
 package karta_pacjenta.pacjent_service.Controllers.UserValidation;
 
-import karta_pacjenta.pacjent_service.Interfaces.MyAppUsersRepository;
+import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import karta_pacjenta.pacjent_service.Models.Enums.UserRoles;
 import karta_pacjenta.pacjent_service.Services.MyAppUserPrincipal;

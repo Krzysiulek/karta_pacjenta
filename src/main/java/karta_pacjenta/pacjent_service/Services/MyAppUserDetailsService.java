@@ -1,6 +1,6 @@
 package karta_pacjenta.pacjent_service.Services;
 
-import karta_pacjenta.pacjent_service.Interfaces.MyAppUsersRepository;
+import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

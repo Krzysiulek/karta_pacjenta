@@ -1,6 +1,6 @@
 package karta_pacjenta.pacjent_service.Controllers.UserValidation;
 
-import karta_pacjenta.pacjent_service.Interfaces.MyAppUsersRepository;
+import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Models.DTOs.UserValidationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
