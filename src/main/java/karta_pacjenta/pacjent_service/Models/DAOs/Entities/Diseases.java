@@ -18,6 +18,7 @@ public class Diseases {
 
     private String name;
     private String category;
+
     @Lob
     private String description;
 }
