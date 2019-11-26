@@ -25,10 +25,18 @@ public class CurrentUserController {
     public ActuallyLoggedInUserTO getCurrentUserInfo() {
         MyAppUserPrincipal currentlyLoggedInUser = UsersUtils.getCurrentlyLoggedInUser();
         long currentlyLoggedInUserId = currentlyLoggedInUser.getUser().getUserId();
+        Long doctorId = null;
+        Long patientId = null;
+
+        if (doctorRepository.findByUserId(currentlyLoggedInUserId).isPresent())
+            doctorId = doctorRepository.findByUserId(currentlyLoggedInUserId).get().getDoctorId();
+
+        if (patientsRepository.findByUserId(currentlyLoggedInUserId).isPresent())
+            patientId = patientsRepository.findByUserId(currentlyLoggedInUserId).get().getPatientId();
 
         return ActuallyLoggedInUserTO.builder()
-                .doctorId(doctorRepository.findByUserId(currentlyLoggedInUserId).getDoctorId())
-                .patientId(patientsRepository.findByUserId(currentlyLoggedInUserId).getPatientId())
+                .doctorId(doctorId)
+                .patientId(patientId)
                 .userId(currentlyLoggedInUserId)
                 .build();
     }

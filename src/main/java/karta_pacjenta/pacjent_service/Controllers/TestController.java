@@ -1,6 +1,8 @@
 package karta_pacjenta.pacjent_service.Controllers;
 
+import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Doctor;
 import karta_pacjenta.pacjent_service.Repositories.DiseasesRepository;
+import karta_pacjenta.pacjent_service.Repositories.DoctorRepository;
 import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Repositories.PatientsRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Diseases;
@@ -32,6 +34,9 @@ public class TestController {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
 
     @GetMapping("")
     public void addTestUsers() {
@@ -66,5 +71,8 @@ public class TestController {
         diseasesRepository.save(new Diseases(9, "Różyczka", "Kropelkowe", "blablabla to jest jakiś opis"));
         diseasesRepository.save(new Diseases(10, "HIV", "Płciowe", "blablabla to jest jakiś opis"));
         diseasesRepository.save(new Diseases(11, "Grypa", "Zakaźne", "blablabla to jest jakiś opis"));
+
+        doctorRepository.save(new Doctor(12L, us1.getUserId(), true, null, null));
+        doctorRepository.save(new Doctor(13L, us4.getUserId(), true, null, null));
     }
 }
