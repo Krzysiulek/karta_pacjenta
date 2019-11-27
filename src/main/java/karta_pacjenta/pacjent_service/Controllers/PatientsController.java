@@ -5,10 +5,12 @@ import karta_pacjenta.pacjent_service.Repositories.PatientsRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Patient;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import karta_pacjenta.pacjent_service.Models.DTOs.PatientInfoTO;
+import karta_pacjenta.pacjent_service.Utils.UsersUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin
@@ -56,5 +58,12 @@ public class PatientsController {
                 .personalIdentityNumber(user.getPersonalIdentityNumber())
                 .phoneNumber(user.getPhoneNumber())
                 .build();
+    }
+
+    @GetMapping("/loggedId")
+    public Optional<Patient> getActualLoggedInPatient() {
+        long userId = UsersUtils.getCurrentlyLoggedInUser().getUser().getUserId();
+        return patientsRepository
+                .findByUserId(userId);
     }
 }

@@ -1,8 +1,10 @@
 package karta_pacjenta.pacjent_service.Controllers.UserValidation;
 
+import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Patient;
 import karta_pacjenta.pacjent_service.Repositories.MyAppUsersRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import karta_pacjenta.pacjent_service.Models.Enums.UserRoles;
+import karta_pacjenta.pacjent_service.Repositories.PatientsRepository;
 import karta_pacjenta.pacjent_service.Services.MyAppUserPrincipal;
 import karta_pacjenta.pacjent_service.Utils.UsersUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class UsersController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private PatientsRepository patientsRepository;
+
     @GetMapping
     private List<MyServiceUser> getAllUsers() {
         return myAppUsersRepository.findAll();
@@ -38,7 +43,10 @@ public class UsersController {
     private void registerUser(@RequestBody MyServiceUser myServiceUser) {
         myServiceUser.setPassword(passwordEncoder.encode(myServiceUser.getPassword()));
         myServiceUser.setRoles(new HashSet<>(Collections.singletonList(UserRoles.PATIENT.getRole())));
-        myAppUsersRepository.save(myServiceUser);
+
+        MyServiceUser registredUser = myAppUsersRepository.save(myServiceUser);
+
+        patientsRepository.save(new Patient(registredUser.getUserId()));
     }
 
     @PutMapping
