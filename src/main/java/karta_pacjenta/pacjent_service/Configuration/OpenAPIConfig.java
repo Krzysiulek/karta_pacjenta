@@ -14,7 +14,7 @@ public class OpenAPIConfig {
     //http://127.0.0.1:8080/swagger-ui.html#/
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SPRING_WEB)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
