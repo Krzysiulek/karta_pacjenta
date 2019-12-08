@@ -18,7 +18,7 @@ public class MedicalHistoryTO {
     private long doctorId;
     private String doctorFirstName;
     private String doctorLastName;
-    private int doctorPhoneNumber;
+    private String doctorPhoneNumber;
     private String doctorEmail;
 
     private String visitTimeStamp;

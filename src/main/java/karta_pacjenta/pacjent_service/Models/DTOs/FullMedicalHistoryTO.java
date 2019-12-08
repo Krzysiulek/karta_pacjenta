@@ -17,10 +17,10 @@ public class FullMedicalHistoryTO {
     private String patientLastName;
     private String patientAddress;
 
-    private int patientPhoneNumber;
+    private String patientPhoneNumber;
     private String patientEmail;
 
-    private long patientPersonalIdentityNumber;
+    private String patientPersonalIdentityNumber;
 
     private ArrayList<MedicalHistoryTO> medicalHistoryTOS;
 }

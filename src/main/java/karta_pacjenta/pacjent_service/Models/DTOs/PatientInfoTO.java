@@ -18,6 +18,6 @@ public class PatientInfoTO {
     private String firstName;
     private String lastName;
     private String address;
-    private int phoneNumber;
-    private long personalIdentityNumber;
+    private String phoneNumber;
+    private String personalIdentityNumber;
 }
