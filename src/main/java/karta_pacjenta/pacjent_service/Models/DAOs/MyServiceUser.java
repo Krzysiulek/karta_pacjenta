@@ -28,7 +28,6 @@ public class MyServiceUser {
     private Long userId;
 
     @Column(nullable = false, unique = true)
-    @Convert(converter = StringEncrypt.class)
     private String userName;
 
     private String password;
