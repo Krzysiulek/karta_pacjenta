@@ -24,5 +24,6 @@ public class Diseases {
     private String category;
 
     @Lob
+    @Convert(converter = StringEncrypt.class)
     private String description;
 }

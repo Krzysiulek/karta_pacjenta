@@ -1,5 +1,6 @@
 package karta_pacjenta.pacjent_service.Models.DAOs;
 
+import karta_pacjenta.pacjent_service.Utils.StringEncrypt;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,16 +28,29 @@ public class MyServiceUser {
     private Long userId;
 
     @Column(nullable = false, unique = true)
+    @Convert(converter = StringEncrypt.class)
     private String userName;
+
     private String password;
+
+    @Convert(converter = StringEncrypt.class)
     private String email;
     private HashSet<String> roles;
 
+    @Convert(converter = StringEncrypt.class)
     private String firstName;
+
+    @Convert(converter = StringEncrypt.class)
     private String lastName;
+
+    @Convert(converter = StringEncrypt.class)
     private String address;
-    private int phoneNumber;
-    private long personalIdentityNumber;
+
+    @Convert(converter = StringEncrypt.class)
+    private String phoneNumber;
+
+    @Convert(converter = StringEncrypt.class)
+    private String personalIdentityNumber;
 
     public MyServiceUser(String userName,
                          String password,
@@ -44,8 +58,8 @@ public class MyServiceUser {
                          String firstName,
                          String lastName,
                          String address,
-                         int phoneNumber,
-                         long personalIdentityNumber) {
+                         String phoneNumber,
+                         String personalIdentityNumber) {
         this.userName = userName;
         this.password = password;
         this.email = email;
