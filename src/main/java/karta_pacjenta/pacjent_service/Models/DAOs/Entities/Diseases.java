@@ -1,5 +1,6 @@
 package karta_pacjenta.pacjent_service.Models.DAOs.Entities;
 
+import karta_pacjenta.pacjent_service.Utils.StringEncrypt;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ public class Diseases {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long diseaseId;
 
+    @Convert(converter = StringEncrypt.class)
     private String name;
     private String category;
 

@@ -22,6 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.httpBasic()
                 .and()
                 .authorizeRequests()
+                .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/test").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/api/users/register").permitAll()
@@ -31,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
 
         http.cors();
+        http.headers().frameOptions().disable();
     }
 
     @Autowired
