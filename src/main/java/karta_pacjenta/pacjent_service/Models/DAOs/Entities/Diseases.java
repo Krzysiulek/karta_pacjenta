@@ -19,6 +19,8 @@ public class Diseases {
 
     @Convert(converter = StringEncrypt.class)
     private String name;
+
+    @Convert(converter = StringEncrypt.class)
     private String category;
 
     @Lob

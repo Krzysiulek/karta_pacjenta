@@ -15,7 +15,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private MyAppUserDetailsService myAppUserDetailsService;
 
     @Autowired
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/h2-console/**").permitAll()
-                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-ui.html/**").permitAll()
                 .antMatchers("/test").permitAll()
                 .antMatchers("/login").permitAll()
                 .antMatchers("/api/users/register").permitAll()

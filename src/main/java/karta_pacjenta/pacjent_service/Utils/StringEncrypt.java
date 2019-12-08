@@ -1,16 +1,25 @@
 package karta_pacjenta.pacjent_service.Utils;
 
+import org.jasypt.util.text.StrongTextEncryptor;
+
 import javax.persistence.AttributeConverter;
 
 public class StringEncrypt implements AttributeConverter<String, String> {
+    private final String password = "helloMotoXd123";
+    private StrongTextEncryptor textEncryptor;
+
 
     @Override
     public String convertToDatabaseColumn(String s) {
-        return s + "dupa";
+        textEncryptor = new StrongTextEncryptor();
+        textEncryptor.setPassword(password);
+        return textEncryptor.encrypt(s);
     }
 
     @Override
     public String convertToEntityAttribute(String s) {
-        return s.replace("dupa", "");
+        textEncryptor = new StrongTextEncryptor();
+        textEncryptor.setPassword(password);
+        return textEncryptor.decrypt(s);
     }
 }
