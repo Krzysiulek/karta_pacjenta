@@ -91,6 +91,13 @@
             <artifactId>spring-security-config</artifactId>
             <version>5.2.0.RELEASE</version>
         </dependency>
+
+        <!-- PostgreSQL used in Staging and Production environment, e.g. on Heroku -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.2</version>
+        </dependency>
     </dependencies>
 
     <build>
