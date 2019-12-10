@@ -1,19 +1,11 @@
 package karta_pacjenta.pacjent_service;
 
-import MultiThreads.ThreadsTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.*;
-import org.springframework.http.client.support.BasicAuthorizationInterceptor;
-import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.HttpStatus;
 
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
