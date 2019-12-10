@@ -20,7 +20,7 @@ public class GenerateTestUsers {
     @Test
     @Ignore
     public void addNewRanodmPeople() throws JSONException {
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 150; i++) {
             createNewPerson();
         }
     }
