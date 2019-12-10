@@ -1,5 +1,6 @@
 package karta_pacjenta.pacjent_service.Models.DAOs;
 
+import karta_pacjenta.pacjent_service.Models.Enums.UserRoles;
 import karta_pacjenta.pacjent_service.Utils.StringEncrypt;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -62,7 +63,7 @@ public class MyServiceUser {
         this.userName = userName;
         this.password = password;
         this.email = email;
-        this.roles = new HashSet<String>(Collections.singleton("ROLE_USER"));
+        this.roles = new HashSet<String>(Collections.singleton(UserRoles.PATIENT.getRole()));
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
