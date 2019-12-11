@@ -59,23 +59,7 @@ public class CourseOfIllnessController {
                 .map(this::getMedicalHistoryAnonymous)
                 .collect(Collectors.toList());
 
-        if (patientsRepository.findById(patientId).isPresent()) {
-            patient = patientsRepository.findById(patientId).get();
-            patientServiceUser = myAppUsersRepository.findByUserId(patient.getUserId());
-        }
-
         return FullMedicalHistoryTO.builder()
-//                .patientId(patientId)
-//                .patientUserId(patientServiceUser.getUserId())
-
-//                .patientUserName(patientServiceUser.getUserName())
-//                .patientEmail(patientServiceUser.getEmail())
-
-//                .patientFirstName(patientServiceUser.getFirstName())
-//                .patientLastName(patientServiceUser.getLastName())
-//                .patientAddress(patientServiceUser.getAddress())
-//                .patientPhoneNumber(patientServiceUser.getPhoneNumber())
-//                .patientPersonalIdentityNumber(patientServiceUser.getPersonalIdentityNumber())
                 .medicalHistoryTOS(medicalHistoryTOS)
                 .build();
     }

@@ -35,7 +35,7 @@ public class UsersController {
     private DoctorRepository doctorRepository;
 
     @GetMapping
-    private List<MyServiceUser> getAllUsers() {
+    public List<MyServiceUser> getAllUsers() {
         return myAppUsersRepository.findAll();
     }
 
@@ -45,8 +45,8 @@ public class UsersController {
                 .findByUserId(userId);
     }
 
-    @PostMapping("/register") // TODO: 2019-11-05 allow endpoint for everyone
-    private void registerUser(@RequestBody MyServiceUser myServiceUser) {
+    @PostMapping("/register")
+    public void registerUser(@RequestBody MyServiceUser myServiceUser) {
         myServiceUser.setPassword(passwordEncoder.encode(myServiceUser.getPassword()));
         myServiceUser.setRoles(new HashSet<>(Collections.singletonList(UserRoles.PATIENT.getRole())));
 
@@ -83,13 +83,13 @@ public class UsersController {
     }
 
     @DeleteMapping("/{userId}")
-    private void deleteUser(@PathVariable long userId) {
+    public void deleteUser(@PathVariable long userId) {
         // TODO: 2019-12-10 add info about deletion into another DB
         myAppUsersRepository.deleteById(userId);
     }
 
     @GetMapping("/currentlyLogged")
-    private MyAppUserPrincipal getCurrentyLoggedInUser() {
+    public MyAppUserPrincipal getCurrentyLoggedInUser() {
         return UsersUtils.getCurrentlyLoggedInUser();
     }
 }
