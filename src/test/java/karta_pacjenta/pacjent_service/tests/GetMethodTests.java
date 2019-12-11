@@ -3,16 +3,15 @@ package karta_pacjenta.pacjent_service.tests;
 import karta_pacjenta.pacjent_service.runnables.GetRunnable;
 import karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.client.support.BasicAuthorizationInterceptor;
+import org.springframework.web.client.RestTemplate;
+
 import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.THREADS;
-import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.user;
-import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.pass;
-
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@SpringBootTest
@@ -44,6 +43,20 @@ class GetMethodTests {
 			assertEquals( httpStatus, HttpStatus.OK );
 		}
 	}
+
+	//1:23:412 - test
+    //3:21:794 - test2
+	@Test
+    public void test() {
+        final String uri = "https://trunk-kartapacjentaservice.herokuapp.com/api/patients/test2";
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getInterceptors().add(
+                new BasicAuthorizationInterceptor("admin", "admin"));
+
+        for (int i = 0; i < 50; i++) {
+            restTemplate.getForObject(uri, String.class);
+        }
+    }
 
 	@Test
     void getDiseasById() {

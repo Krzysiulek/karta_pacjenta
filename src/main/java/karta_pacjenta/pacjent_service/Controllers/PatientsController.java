@@ -70,26 +70,15 @@ public class PatientsController {
 
     @GetMapping("/test")
     public List<PatientInfoTO> test() {
-        System.out.println("test");
-        System.out.println(LocalDateTime.now());
-        List<PatientInfoTO> xd = patientInfoTORepository.findAllPatients();
-        System.out.println(LocalDateTime.now());
-
         return patientInfoTORepository.findAllPatients();
     }
 
     @GetMapping("/test2")
     public List<PatientInfoTO> test2() {
-        System.out.println("test2");
-        System.out.println(LocalDateTime.now());
-        List<PatientInfoTO> xd = patientsRepository
+        return patientsRepository
                 .findAll()
                 .stream()
                 .map(this::getPatientInfo)
                 .collect(Collectors.toList());
-        System.out.println(LocalDateTime.now());
-
-
-        return patientInfoTORepository.findAllPatients();
     }
 }
