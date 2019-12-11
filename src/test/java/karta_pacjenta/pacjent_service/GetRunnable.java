@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @project karta_pacjenta
  * @user blaise * @date 2019-12-10 * @time 21:52
  */
-public class GetRunnable implements Runnable {
+public class GetRunnable extends HttpMethodRunnable {
     private final String url;
     private final String user;
     private final String pass;
