@@ -5,7 +5,7 @@ import karta_pacjenta.pacjent_service.Repositories.PatientsRepository;
 import karta_pacjenta.pacjent_service.Models.DAOs.Entities.Patient;
 import karta_pacjenta.pacjent_service.Models.DAOs.MyServiceUser;
 import karta_pacjenta.pacjent_service.Models.DTOs.PatientInfoTO;
-import karta_pacjenta.pacjent_service.Repositories.TestRepository;
+import karta_pacjenta.pacjent_service.Repositories.PatientInfoTORepository;
 import karta_pacjenta.pacjent_service.Utils.UsersUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,16 +26,12 @@ public class PatientsController {
     private MyAppUsersRepository myAppUsersRepository;
 
     @Autowired
-    private TestRepository testRepository;
+    private PatientInfoTORepository patientInfoTORepository;
 
     // TODO: 2019-11-24 fix this after moving personal infos to MyAppUser. Get infos from more than 1 class
     @GetMapping("")
     public List<PatientInfoTO> getAllPatients() {
-        return patientsRepository
-                .findAll()
-                .stream()
-                .map(this::getPatientInfo)
-                .collect(Collectors.toList());
+        return patientInfoTORepository.findAllPatients();
     }
 
     @GetMapping("/{patientId}")
@@ -76,10 +72,10 @@ public class PatientsController {
     public List<PatientInfoTO> test() {
         System.out.println("test");
         System.out.println(LocalDateTime.now());
-        List<PatientInfoTO> xd = testRepository.testQuery();
+        List<PatientInfoTO> xd = patientInfoTORepository.findAllPatients();
         System.out.println(LocalDateTime.now());
 
-        return testRepository.testQuery();
+        return patientInfoTORepository.findAllPatients();
     }
 
     @GetMapping("/test2")
@@ -94,6 +90,6 @@ public class PatientsController {
         System.out.println(LocalDateTime.now());
 
 
-        return testRepository.testQuery();
+        return patientInfoTORepository.findAllPatients();
     }
 }
