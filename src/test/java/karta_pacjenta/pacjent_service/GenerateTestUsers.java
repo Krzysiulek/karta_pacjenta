@@ -118,7 +118,7 @@ public class GenerateTestUsers {
         Doctor[] doctors = restTemplate.getForObject(BASE_URL + DOCTORS_URL, Doctor[].class);
 
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 50; i++) {
 
             try {
                 String visitCategory = getRandomDescription(1);
@@ -136,7 +136,7 @@ public class GenerateTestUsers {
 
                 courseOfIllness.setDiseaseId(diseaseId.getDiseaseId());
                 courseOfIllness.setPatientId(patientId.getPatientId());
-                courseOfIllness.setDoctorId(doctorId.getDoctorId());
+                courseOfIllness.setDoctorId(doctorId.getUserId());
 
                 String xdf = restTemplate.postForObject(BASE_URL + ILLNESS_COURSES_API, courseOfIllness, String.class);
             } catch (IllegalArgumentException e ) {
