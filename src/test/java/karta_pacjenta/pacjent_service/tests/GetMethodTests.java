@@ -1,5 +1,7 @@
-package karta_pacjenta.pacjent_service;
+package karta_pacjenta.pacjent_service.tests;
 
+import karta_pacjenta.pacjent_service.runnables.GetRunnable;
+import karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.*;
@@ -7,9 +9,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static karta_pacjenta.pacjent_service.HttpMethodRunnable.THREADS;
-import static karta_pacjenta.pacjent_service.HttpMethodRunnable.user;
-import static karta_pacjenta.pacjent_service.HttpMethodRunnable.pass;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.THREADS;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.user;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.pass;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

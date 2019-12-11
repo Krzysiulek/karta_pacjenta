@@ -1,4 +1,4 @@
-package karta_pacjenta.pacjent_service;
+package karta_pacjenta.pacjent_service.runnables;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ public class GetRunnable extends HttpMethodRunnable {
     private final String pass;
     private ArrayList<HttpStatus> httpStatuses;
 
-    GetRunnable(String url, String user, String pass, ArrayList<HttpStatus> httpStatuses) {
+    public GetRunnable(String url, String user, String pass, ArrayList<HttpStatus> httpStatuses) {
         this.url = url;
         this.user = user;
         this.pass = pass;

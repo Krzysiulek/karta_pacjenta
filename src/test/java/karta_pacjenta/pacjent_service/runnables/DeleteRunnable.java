@@ -1,4 +1,4 @@
-package karta_pacjenta.pacjent_service;
+package karta_pacjenta.pacjent_service.runnables;
 
 /**
  * @project karta_pacjenta

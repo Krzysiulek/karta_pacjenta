@@ -1,4 +1,4 @@
-package karta_pacjenta.pacjent_service;
+package karta_pacjenta.pacjent_service.runnables;
 
 import net.minidev.json.JSONObject;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -9,17 +9,16 @@ import java.util.ArrayList;
 
 /**
  * @project karta_pacjenta
- * @user blaise * @date 2019-12-11 * @time 08:33
+ * @user blaise * @date 2019-12-10 * @time 23:49
  */
-public class PutRunnable extends HttpMethodRunnable {
-
+public class PostRunnable extends HttpMethodRunnable {
     private final String                url;
-    private final  String                user;
-    private final  String                pass;
-    private final  JSONObject            jsonObject;
+    private final String                user;
+    private final String                pass;
+    private final JSONObject            jsonObject;
     private        ArrayList<HttpStatus> httpStatuses;
 
-    PutRunnable(String url, String user, String pass, JSONObject jsonObject, ArrayList<HttpStatus> httpStatuses) {
+    public PostRunnable(String url, String user, String pass, JSONObject jsonObject, ArrayList<HttpStatus> httpStatuses) {
         this.url = url;
         this.user = user;
         this.pass = pass;
@@ -31,7 +30,7 @@ public class PutRunnable extends HttpMethodRunnable {
     public void run() {
 
         RestTemplateBuilder restTemplateBuilder = new RestTemplateBuilder();
-        RestTemplate         restTemplate;
+        RestTemplate        restTemplate;
 
         restTemplate = restTemplateBuilder
                 .basicAuthentication( user, pass )
@@ -42,12 +41,11 @@ public class PutRunnable extends HttpMethodRunnable {
         HttpEntity<String> entity = new HttpEntity<>( jsonObject.toString(), headers );
 
         ResponseEntity<String> responseEntity = restTemplate
-                .exchange(url, HttpMethod.PUT, entity, String.class);
+                .exchange(url, HttpMethod.POST, entity, String.class);
 
         final String                 body           = responseEntity.getBody();
         System.out.println("body = " + body);
         System.out.println(responseEntity.getStatusCode());
         httpStatuses.add(responseEntity.getStatusCode());
-
     }
 }

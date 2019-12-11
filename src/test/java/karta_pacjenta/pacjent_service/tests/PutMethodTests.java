@@ -1,5 +1,6 @@
-package karta_pacjenta.pacjent_service;
+package karta_pacjenta.pacjent_service.tests;
 
+import karta_pacjenta.pacjent_service.runnables.PutRunnable;
 import net.minidev.json.JSONObject;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
@@ -11,7 +12,9 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static karta_pacjenta.pacjent_service.HttpMethodRunnable.*;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.THREADS;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.user;
+import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.pass;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
