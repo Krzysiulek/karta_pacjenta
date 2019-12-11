@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * TODO
  * 		- dokumentacja
+ * 		- przyspieszyć find by itd
  * 		- sql
  * 		- help
  * 		- timestamp + funkcja skrótu
