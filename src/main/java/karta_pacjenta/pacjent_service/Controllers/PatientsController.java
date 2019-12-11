@@ -67,18 +67,4 @@ public class PatientsController {
         return patientsRepository
                 .findByUserId(userId);
     }
-
-    @GetMapping("/test")
-    public List<PatientInfoTO> test() {
-        return patientInfoTORepository.findAllPatients();
-    }
-
-    @GetMapping("/test2")
-    public List<PatientInfoTO> test2() {
-        return patientsRepository
-                .findAll()
-                .stream()
-                .map(this::getPatientInfo)
-                .collect(Collectors.toList());
-    }
 }

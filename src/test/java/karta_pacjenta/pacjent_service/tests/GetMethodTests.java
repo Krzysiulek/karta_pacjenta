@@ -44,16 +44,18 @@ class GetMethodTests {
 		}
 	}
 
-	//1:23:412 - test
-    //3:21:794 - test2
+	//50: 1:23:412 - test
+    //50: 3:21:794 - test2
+    //100: 2:38:126 - test
+    //100: 5:7:64- test2
 	@Test
     public void test() {
-        final String uri = "https://trunk-kartapacjentaservice.herokuapp.com/api/patients/test2";
+        final String uri = "https://trunk-kartapacjentaservice.herokuapp.com/api/patients/test";
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getInterceptors().add(
                 new BasicAuthorizationInterceptor("admin", "admin"));
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 100; i++) {
             restTemplate.getForObject(uri, String.class);
         }
     }
