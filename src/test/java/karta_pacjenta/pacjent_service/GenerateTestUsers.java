@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.math.BigInteger;
 import java.util.Random;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class GenerateTestUsers {
 
@@ -21,7 +20,9 @@ public class GenerateTestUsers {
     private static final String ADD_USER_URL = "/api/users/register";
     private static final String ADD_DISEASE_URL = "/api/diseases";
 
-    /** https://random-word-api.herokuapp.com/key?. */
+    /**
+     * https://random-word-api.herokuapp.com/key?.
+     */
     private static final String API_KEY = "PQJQPXXX";
     private static final String RANDOM_WORDS_API_URL = "https://random-word-api.herokuapp.com/" + "/word?key=" + API_KEY + "&number=";
 
@@ -51,7 +52,7 @@ public class GenerateTestUsers {
         JSONObject location = le.getJSONObject("location");
         String address = location.getString("country") + " " + location.getString("state") + " " + location.getString("city");
         String phoneNumber = le.getString("phone");
-        String personalIdentityNumber = new BigInteger(11*4, new Random()).toString();
+        String personalIdentityNumber = new BigInteger(11 * 4, new Random()).toString();
 
         String response = new RestTemplate().postForObject(BASE_URL + ADD_USER_URL, new MyServiceUser(userName, password, email, firstName, lastName, address, phoneNumber, personalIdentityNumber), String.class);
     }
@@ -62,7 +63,7 @@ public class GenerateTestUsers {
         for (int i = 0; i < 200; i++) {
             try {
                 createRandomDisease();
-            }catch (IllegalArgumentException e) {
+            } catch (IllegalArgumentException e) {
                 System.out.println("Cos nie zadziałało. Sorry, już się poprawiam");
                 i--;
             }
