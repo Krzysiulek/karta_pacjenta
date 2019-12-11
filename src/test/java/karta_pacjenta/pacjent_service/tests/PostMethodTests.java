@@ -26,7 +26,7 @@ import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.pass;
  * TODO:
  *      - getHttpStatusForRegisterUser
  */
-@SpringBootTest
+//@SpringBootTest
 public class PostMethodTests {
 
     @Test

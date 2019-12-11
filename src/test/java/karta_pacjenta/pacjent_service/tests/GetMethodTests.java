@@ -15,7 +15,7 @@ import static karta_pacjenta.pacjent_service.runnables.HttpMethodRunnable.pass;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
+//@SpringBootTest
 class GetMethodTests {
 
 	@Test

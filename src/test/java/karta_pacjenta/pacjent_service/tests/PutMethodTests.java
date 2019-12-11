@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @project karta_pacjenta
  * @user blaise * @date 2019-12-11 * @time 08:20
  */
-@SpringBootTest
+//@SpringBootTest
 public class PutMethodTests {
 
     @Test
