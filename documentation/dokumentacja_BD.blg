@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: dokumentacja_BD.aux
+The style file: unsrtnat.bst
+Database file #1: references.bib
+Warning--empty publisher in craigspring
+Warning--empty publisher in sql
+Warning--empty publisher in algorytmy
+You've used 7 entries,
+            2481 wiz_defined-function locations,
+            584 strings with 5161 characters,
+and the built_in function-call counts, 1866 in all, are:
+= -- 154
+> -- 49
+< -- 7
++ -- 28
+- -- 14
+* -- 80
+:= -- 299
+add.period$ -- 24
+call.type$ -- 7
+change.case$ -- 11
+chr.to.int$ -- 7
+cite$ -- 10
+duplicate$ -- 113
+empty$ -- 211
+format.name$ -- 21
+if$ -- 403
+int.to.chr$ -- 1
+int.to.str$ -- 8
+missing$ -- 6
+newline$ -- 46
+num.names$ -- 21
+pop$ -- 84
+preamble$ -- 1
+purify$ -- 7
+quote$ -- 0
+skip$ -- 75
+stack$ -- 0
+substring$ -- 14
+swap$ -- 14
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 40
+warning$ -- 3
+while$ -- 14
+width$ -- 0
+write$ -- 94
+(There were 3 warnings)

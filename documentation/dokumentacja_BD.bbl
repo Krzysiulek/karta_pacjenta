@@ -1,0 +1,51 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Walls(2015)]{craigspring}
+Craig Walls.
+\newblock \emph{Spring in Action, Fourth Edition}.
+\newblock 2015.
+\newblock ISBN 9788328308497.
+
+\bibitem[Forta(2012)]{sql}
+Ben Forta.
+\newblock \emph{Sams Teach Yourself}.
+\newblock 2012.
+\newblock ISBN 0672336073.
+
+\bibitem[Krystyna~Balińska(2004)]{algorytmy}
+Krzysztof T.~Zwierzyński Krystyna~Balińska.
+\newblock \emph{Projektowanie algorytmów grafowych}.
+\newblock 2004.
+\newblock ISBN 8371435487.
+
+\bibitem[Bykowski(2019)]{springporadnik}
+Przemysław Bykowski.
+\newblock Spring boot od podstaw.
+\newblock
+  \url{https://www.youtube.com/playlist?list=PLUtcRmGoaP27ypMB5aokWbf9KWuWv3UDC/},
+  2019.
+
+\bibitem[Brains(2019)]{springsecurity}
+Java Brains.
+\newblock Spring security.
+\newblock
+  \url{https://www.youtube.com/playlist?list=PLqq-6Pq4lTTYTEooakHchTGglSvkZAjnE/},
+  2019.
+
+\bibitem[is~A~RESTful~API?(2017)]{rest}
+What is~A~RESTful~API?
+\newblock Traversy media.
+\newblock \url{https://www.youtube.com/watch?v=Q-BpqyOT3a8/}, 2017.
+
+\bibitem[in~8~Hours | Angular Tutorial For~Beginners(2019)]{angular}
+Angular 8 Full Course Learn~Angular in~8~Hours | Angular Tutorial
+  For~Beginners.
+\newblock edureka!
+\newblock \url{https://www.youtube.com/watch?v=oXr4lpXEg1o/}, 2019.
+
+\end{thebibliography}
