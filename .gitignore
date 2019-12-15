@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### latex ###
+*.log
+*.aux
+*.toc
+*.out
+*.gz
+*.DS_Store
