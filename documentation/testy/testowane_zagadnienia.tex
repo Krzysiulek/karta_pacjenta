@@ -1,0 +1,11 @@
+Z uwagi na to, że dostęp do aplikacji powinno mieć w tym samym czasie dziesiątki tysięcy użytkowników (pacjenci i lekarze jednocześnie).
+Stąd bardzo ważną rzeczą jest obsługa endpointów, które dostarczają odpowieni zbiór danych.\\
+Zaimplementowane zostały testy obciążeniowe mające na celu sprawdzenie wydajności naszego serwisu.
+Skorzystaliśmy z RestTemplate, czyli biblioteki dostępnej we frameworku Spring.\\
+Badane zagadnienia:
+\begin{enumerate}
+\item Obsługa requestów http, metod GET, POST, PUT, DELETE,
+\item Weryfikacja statusów HTTP,
+\item Czas odpowiedzi serwera,
+\item Odporność na żądania wielu (dziesiątki tysięcy) użytkowników.
+\end{enumerate}
