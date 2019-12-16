@@ -9,9 +9,10 @@ Dzięki ogromnej popularności aplikacji internetowych opartych na języku \text
 Większość \textit{endpointów} dostępnych w serwisie zapezpieczone jest przy użyciu metody \textit{Basic Auth}. Bez podania loginu i hasła niemożliwy jest dostęp do serwisu. Jedyne dostępne bez konieczności autoryzacji endpointy to te dotyczące logowania i rejestracji.
 
 \subsubsection{Zabezpieczenie danych - baza danych}
-Do zabezpieczenia danych skorzystaliśmy z hashowania danych wbudowanego w API Springa.
+Do zabezpieczenia danych skorzystaliśmy z hashowania danych, przy użyciu klucza symetrycznego wbudowanego w API Springa.
 
 \subsubsection{Ograniczenia}
 W trakcie implementacji kolejnych funkcjonalności musieliśmy zmierzyć się z ograniczeniami serwera Heroku. Obsługa requestów jest jednowątkowa, stąd testowanie jego wydajności jest mocno ograniczone.
 Skorzystanie z darmowej domeny sprawia, że funkcjonowanie strony jest po prostu wolne.
 \subsubsection{Możliwości dotyczące rozwoju - przyspieszenie}
+Przyspieszenie może zostać uzyskane np. poprzez zastosowanie architektury mikroserwisowej, tak by każda atomowa operacja mogła zostać wykonywana niezaleźnie. Zapewniłoby to dużą skalowalność systemU i pod dużym obciązeniem przełożyłoby się to na przyspieszenie. 
