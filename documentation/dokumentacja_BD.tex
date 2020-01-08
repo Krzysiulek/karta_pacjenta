@@ -10,6 +10,10 @@
 \usepackage{textcomp}
 \lstset{upquote=true}
 
+\usepackage{color}
+\newcommand{\todo}[1]{\\ \textcolor{red}{TODO: #1}\PackageWarning{TODO:}{#1!}}
+%\newcommand{\todo}[1]{\\ \textcolor{red}{TODO: #1}}
+
 \addtolength{\hoffset}{-1.5cm}
 \addtolength{\marginparwidth}{-1.5cm}
 \addtolength{\textwidth}{3cm}

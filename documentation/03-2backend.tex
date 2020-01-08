@@ -1,4 +1,5 @@
 \subsection{Logika aplikacji (ang. \textit{backend})}
+\todo{Tu skończyłem. Dokończyć odtąd!!}
 \subsubsection{Punkty dostępowe \textit{enpoint}}
 Dzięki ogromnej popularności aplikacji internetowych opartych na języku \textit{Java} oraz \textit{framework Spring} możliwe było szybkie wygenerowanie dokumentacji \textit{Open API}. Pod \href{https://trunk-kartapacjentaservice.herokuapp.com/swagger-ui.html} {linkiem} dostępny jest spis wszystkich dostępnych w serwisie endpointów. Wejście w ten link będzie wymagało podania loginu i hasła (dostępnego tutaj: \ref{credentials}).
 
@@ -15,5 +16,9 @@ Do zabezpieczenia danych skorzystaliśmy z hashowania danych, przy użyciu klucz
 \subsubsection{Ograniczenia}
 W trakcie implementacji kolejnych funkcjonalności musieliśmy zmierzyć się z ograniczeniami serwera Heroku. Obsługa requestów jest jednowątkowa, stąd testowanie jego wydajności jest mocno ograniczone.
 Skorzystanie z darmowej domeny sprawia, że funkcjonowanie strony jest po prostu wolne.
+
 \subsubsection{Możliwości dotyczące rozwoju - przyspieszenie}
 Przyspieszenie może zostać uzyskane np. poprzez zastosowanie architektury mikroserwisowej, tak by każda atomowa operacja mogła zostać wykonywana niezaleźnie. Zapewniłoby to dużą skalowalność systemU i pod dużym obciązeniem przełożyłoby się to na przyspieszenie. 
+
+\todo
+
