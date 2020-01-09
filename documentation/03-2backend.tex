@@ -3,7 +3,6 @@
 \subsubsection{Punkty dostępowe (ang. \textit{enpoint})}
 Dzięki ogromnej popularności aplikacji internetowych opartych na języku \textit{Java} oraz \textit{framework'a Spring} możliwe było szybkie wygenerowanie dokumentacji \textit{Open API}. Pod \href{https://trunk-kartapacjentaservice.herokuapp.com/swagger-ui.html} {linkiem} dostępny jest spis wszystkich dostępnych w serwisie endpointów. Wejście w ten link będzie wymagało podania loginu i hasła (dostępnego tutaj: \ref{credentials}).
 
-\clearpage
 \input{03-01restapi.tex}
 
 \subsubsection{Zabezpieczenie danych - API}
@@ -18,13 +17,32 @@ Do zabezpieczenia danych skorzystaliśmy z symetrycznego szyfrowania. Informacje
 \caption{Zaszyfrowane krotki bazy danych. Widoczne jest, że ciągi znaków zapisane w bazie danych nie są możliwe do odszyfrowania bez dekodowania.}
 \end{figure}
 
-\todo{Tu skończyłem}
 \subsubsection{Ograniczenia}
-W trakcie implementacji kolejnych funkcjonalności musieliśmy zmierzyć się z ograniczeniami serwera Heroku. Obsługa requestów jest jednowątkowa, stąd testowanie jego wydajności jest mocno ograniczone.
-Skorzystanie z darmowej domeny sprawia, że funkcjonowanie strony jest po prostu wolne.
+W trakcie implementacji kolejnych funkcjonalności musieliśmy zmierzyć się z ograniczeniami serwera Heroku. Obsługa zapytań (ang. \textit{request}) jest wykonywana na ograniczonym serwerze, stąd można zaobserwować wydłużony czas oczekiwania na duże zapytanie. Skorzystanie z darmowej domeny sprawia, że funkcjonowanie strony jest po prostu wolne.
+
+\subsubsection{Przyspieszenie}
+W trakcie pierwszej wersji implementacji zastosowano wbudowany we framework Spring sterownik będący mostkiem pomiędzy obiektami programu a bazą danych. Jego zastosowanie umożliwiło stosowanie zapytań do bazy przy użyciu specjalnie spreparowanych nazw metod. Wykorzystując ten sposób i np. metodę
+
+\begin{lstlisting}
+Optional<Patient> findByUserId(Long userId);
+\end{lstlisting}
+
+automatycznie generuje się kod SQL, który odpowiada za znalezienie użytkownika o zadanym ID.
+
+Jest to bardzo wygodne, jednak korzystając z możliwości zbudowania własnego zapytania przy użyciu języka SQL udało się uzyskać \textbf{czterokrotne} przyspieszenie związane ze stosowaniem bardziej złożonych zapytań. Wstrzyknięcie zapytania SQL zaimplementowane jest w następujący sposób:
+
+\begin{lstlisting}
+@Query(
+value = "select distinct patients.patient_id, 
+	my_app_users.* from my_app_users " +
+	"join patients\n" +
+	"on my_app_users.user_id=patients.user_id",
+	nativeQuery = true)
+List<PatientInfoTO> findAllPatients();
+\end{lstlisting}
+
+
 
 \subsubsection{Możliwości dotyczące rozwoju - przyspieszenie}
-Przyspieszenie może zostać uzyskane np. poprzez zastosowanie architektury mikroserwisowej, tak by każda atomowa operacja mogła zostać wykonywana niezaleźnie. Zapewniłoby to dużą skalowalność systemU i pod dużym obciązeniem przełożyłoby się to na przyspieszenie. 
-
-\todo
+Przyspieszenie może zostać uzyskane np. poprzez zastosowanie architektury mikro-serwisowej, tak by każda atomowa operacja mogła zostać wykonywana niezależnie. Zapewniłoby to dużą skalowalność systemU i pod dużym obciążeniem przełożyłoby się to na przyspieszenie. 
 
