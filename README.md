@@ -10,7 +10,7 @@ Projekt ,,Karta Pacjenta'' zakładał stworzenie aplikacji umożliwiającej prze
 Wykorzystane technologie:
 - Spring Boot
 - Spring Security
-- Angular 7
+- Angular 8
 - PostgreSQL
 
 Demo:
