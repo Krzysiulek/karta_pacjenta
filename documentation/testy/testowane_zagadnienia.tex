@@ -1,7 +1,10 @@
-Z uwagi na to, że dostęp do aplikacji powinno mieć w tym samym czasie dziesiątki tysięcy użytkowników (pacjenci i lekarze jednocześnie).
-Stąd bardzo ważną rzeczą jest obsługa endpointów, które dostarczają odpowieni zbiór danych.\\
-Zaimplementowane zostały testy obciążeniowe mające na celu sprawdzenie wydajności naszego serwisu.
-Skorzystaliśmy z RestTemplate, czyli biblioteki dostępnej we frameworku Spring.\\
+\subsubsection{Testowane zagadnienia}
+Z uwagi na to, że dostęp do rzeczywistego systemu powinno mieć w tym samym czasie setki użytkowników (pacjenci i lekarze jednocześnie) ważną rolą w tworzeniu aplikacji jest jej testowanie. Oprócz testów jednostkowych, które weryfikują poprawność implementacji zdecydowano się również zaimplementować testy obciążeniowe, symulujące rzeczywiste zachowania użytkowników na systemie. 
+
+Testy obciążeniowe wykonane zostały z wykorzystaniem wielowątkowości. Pozwoliła ona symulować sytuację, w której do jednego punktu dostępowego serwisu w jednym czasie próbuje uzyskać dostęp wielu użytkowników. 
+
+Implementacja testów mająca na celu weryfikację wydajności naszego serwisu wykonana została przy użyciu biblioteki \textit{Rest Template} w języku Java.
+
 Badane zagadnienia:
 \begin{enumerate}
 \item Obsługa requestów http, metod GET, POST, PUT, DELETE,
