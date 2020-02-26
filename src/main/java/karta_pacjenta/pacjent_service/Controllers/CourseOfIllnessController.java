@@ -49,9 +49,6 @@ public class CourseOfIllnessController {
 
     @GetMapping("/{patientId}/anonymous")
     public FullMedicalHistoryTO getPatientIllnessHistoryAnonymous(@PathVariable Long patientId) {
-        Patient patient = new Patient();
-        MyServiceUser patientServiceUser = new MyServiceUser();
-
         ArrayList<MedicalHistoryTO> medicalHistoryTOS = (ArrayList<MedicalHistoryTO>) courseOfIllnessRepository
                 .findAll()
                 .stream()
@@ -66,7 +63,7 @@ public class CourseOfIllnessController {
 
     @GetMapping("/{patientId}/full")
     public FullMedicalHistoryTO getPatientIllnessHistoryFull(@PathVariable Long patientId) {
-        Patient patient = new Patient();
+        Patient patient;
         MyServiceUser patientServiceUser = new MyServiceUser();
 
         ArrayList<MedicalHistoryTO> medicalHistoryTOS = (ArrayList<MedicalHistoryTO>) courseOfIllnessRepository
@@ -154,14 +151,8 @@ public class CourseOfIllnessController {
     }
 
     private MedicalHistoryTO getMedicalHistoryAnonymous(CourseOfIllness courseOfIllness) {
-        Diseases disease = new Diseases();
-        Doctor doctor = new Doctor();
-
-        if (diseasesRepository.findById(courseOfIllness.getDiseaseId()).isPresent())
-            disease = diseasesRepository.findById(courseOfIllness.getDiseaseId()).get();
-
-        if (doctorRepository.findByUserId(courseOfIllness.getDoctorId()).isPresent())
-            doctor = doctorRepository.findByUserId(courseOfIllness.getDoctorId()).get();
+        Diseases disease = getDiseaseIfExists(courseOfIllness);
+        Doctor doctor = getDoctorIfExists(courseOfIllness);
 
         MyServiceUser doctorServiceUser = myAppUsersRepository.findByUserId(courseOfIllness.getDoctorId());
 
@@ -173,7 +164,6 @@ public class CourseOfIllnessController {
                 .diseaseCategory(disease.getCategory())
                 .diseaseDescription(disease.getDescription())
 
-//                .patientId(courseOfIllness.getPatientId())
 
                 .doctorId(doctor.getDoctorId())
                 .doctorFirstName(doctorServiceUser.getFirstName())
@@ -187,6 +177,24 @@ public class CourseOfIllnessController {
                 .doctorDescription(courseOfIllness.getDoctorDescription())
                 .doctorPrescription(courseOfIllness.getPrescription())
                 .build();
+    }
+
+    private Doctor getDoctorIfExists(CourseOfIllness courseOfIllness) {
+        Doctor doctor = new Doctor();
+
+        if (doctorRepository.findByUserId(courseOfIllness.getDoctorId()).isPresent())
+            doctor = doctorRepository.findByUserId(courseOfIllness.getDoctorId()).get();
+
+        return doctor;
+    }
+
+    private Diseases getDiseaseIfExists(CourseOfIllness courseOfIllness) {
+        Diseases disease = new Diseases();
+
+        if (diseasesRepository.findById(courseOfIllness.getDiseaseId()).isPresent())
+            disease = diseasesRepository.findById(courseOfIllness.getDiseaseId()).get();
+
+        return disease;
     }
 
 }
