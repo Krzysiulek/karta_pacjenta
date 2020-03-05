@@ -30,12 +30,12 @@ public class GenerateTestUsers {
      * https://random-word-api.herokuapp.com/key?.
      */
     private static final String API_KEY = "1VLJBIZB";
-    private static final String RANDOM_WORDS_API_URL = "https://random-word-api.herokuapp.com/" + "/word?key=" + API_KEY + "&number=";
+    private static final String RANDOM_WORDS_API_URL = "https://random-word-api.herokuapp.com/word?number=";
 
     @Ignore
     @Test
     public void addNewRanodmPeople() throws JSONException {
-        for (int i = 0; i < 70; i++) {
+        for (int i = 0; i < 10; i++) {
             createNewPerson();
         }
     }
@@ -66,7 +66,7 @@ public class GenerateTestUsers {
     @Test
     @Ignore
     public void createRandomDiseases() throws JSONException {
-        for (int i = 0; i < 140; i++) {
+        for (int i = 0; i < 20; i++) {
             try {
                 createRandomDisease();
             } catch (IllegalArgumentException e) {
@@ -118,7 +118,7 @@ public class GenerateTestUsers {
         Doctor[] doctors = restTemplate.getForObject(BASE_URL + DOCTORS_URL, Doctor[].class);
 
 
-        for (int i = 0; i < 400; i++) {
+        for (int i = 0; i < 40; i++) {
 
             try {
                 String visitCategory = getRandomDescription(1);
